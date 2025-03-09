@@ -28,8 +28,8 @@ Route::get('/login', [AuthController::class, 'index'])->name('login.index');
 Route::post('/login', [AuthController::class, 'processLogin'])->name('process.login');
 
 Route::group([
-    'middleware'=> 'auth'
-], function() {
+    'middleware' => 'auth'
+], function () {
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -62,10 +62,9 @@ Route::group([
     Route::get('/task-editView/{taskId}', [TaskController::class, 'editView'])->name('task.editView');
     Route::put('/task-edit/{taskId}', [TaskController::class, 'edit'])->name('task.edit');
     Route::delete('/task-delete/{taskId}', [TaskController::class, 'delete'])->name('task.delete');
-    Route::patch('/task-update/{taskId}', [TaskController::class, 'update'])->name('task.update');
+    Route::patch('/task-update/{id}', [TaskController::class, 'update'])->name('task.update');
 
 
     Route::get('/task/api', [TaskController::class, 'api'])->name('task.api');
     Route::get('/task/api/user/{projectId}', [TaskController::class, 'apiGetUser'])->name('task.api.getUser');
 });
-
